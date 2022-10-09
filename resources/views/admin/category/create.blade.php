@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">
                     <h3>Add Category
-                        <a href="{{url('admin/category')}}" class="btn btn-sm btn-primary text-white float-end">Back</a>
+                        <a href="{{url('admin/category')}}" class="btn btn-sm btn-danger text-white float-end">Back</a>
                     </h3>
                 </div>
                 <div class="card-body">
@@ -58,7 +58,7 @@
                                 @error('meta_description')<small class="text-danger">{{$message}}</small>@enderror
                             </div>
                             <div class="col-md-12 mb-3">
-                                <button type="submit" class="btn btn-primary btn-sm float-end">Save</button>
+                                <button type="submit" class="btn btn-primary btn-sm float-end" style="color: white;">Save</button>
                             </div>
                         </div>
                     </form>
