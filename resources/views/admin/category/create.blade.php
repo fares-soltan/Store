@@ -36,7 +36,7 @@
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label>Status</label><br/>
-                                <input type="checkbox" name="status" style="margin-top: 16px;">
+                               Hidden <input type="checkbox" name="status" style="margin-top: 16px;">
 
                             </div>
                             <div class="col-md-12 p-4">
@@ -47,9 +47,9 @@
                                 <input type="text" name="meta_title" class="form-control">
                                 @error('meta_title')<small class="text-danger">{{$message}}</small>@enderror
                             </div>
-                            <div class="col-md-6 mb-3">
+                            <div class="col-md-12 mb-3">
                                 <label>Meta Keyword</label>
-                                <input type="text" name="meta_keyword" class="form-control">
+                                <textarea type="text" name="meta_keyword" class="form-control"></textarea>
                                 @error('meta_keyword')<small class="text-danger">{{$message}}</small>@enderror
                             </div>
                             <div class="col-md-12 mb-3">
