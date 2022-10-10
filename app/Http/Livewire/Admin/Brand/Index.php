@@ -12,7 +12,7 @@ class Index extends Component
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
 
-    public $name,$slug,$status;
+    public $name,$slug,$status,$brand_id;
 
     public function rules(){
         return [
@@ -39,6 +39,29 @@ class Index extends Component
         $this->dispatchBrowserEvent('close-modal');
         $this->resetInput();
     }
+
+
+    public function updatebrands(int $brand_id){
+        $this->brand_id=$brand_id;
+        $brand=Brand::find($brand_id);
+        $this->name=$brand->name;
+        $this->slug=$brand->slug;
+        $this->status=$brand->status;
+    }
+
+    public function updatebrandform(){
+        $validatedData = $this->validate();
+        Brand::find($this->brand_id)->update([
+            'name'=>$this->name,
+            'slug'=>Str::slug($this->slug),
+            'status'=>$this->status == true ? '1':'0',
+        ]);
+        session()->flash('message','Brand Updated Successfully');
+        $this->dispatchBrowserEvent('close-modal');
+        $this->resetInput();
+    }
+
+
 
     public function render()
     {

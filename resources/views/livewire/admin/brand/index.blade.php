@@ -5,6 +5,9 @@
 
     <div class="row">
         <div class="col-md-12">
+            @if(session('message'))
+                <div class="alert alert-success">{{session('message')}}</div>
+            @endif
             <div class="card">
                 <div class="card-header">
                     <h4>Brands List
@@ -36,8 +39,8 @@
                                 <td>{{ $brand->status == '1' ? 'Hidden':'Visible'}}</td>
                                 <td>
 
-                                    <a href="{{url('admin/brand/'.$brand->id.'/edit')}}" class="btn btn-success" style="color: white">Edit</a>
-                                    <a href="#" wire:click="deleteCategory({{$brand->id}})" class="btn btn-danger" style="color: white" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</a>
+                                    <a href="#" wire:click="updatebrands({{$brand->id}})" data-bs-toggle="modal" data-bs-target="#updateBrandModal" class="btn btn-success" style="color: white">Edit</a>
+                                    <a href="#"  class="btn btn-danger" style="color: white" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</a>
                                 </td>
                             </tr>
                         @endforeach
@@ -57,6 +60,7 @@
     <script>
         window.addEventListener('close-modal',event=>{
             $('#addBrandModal').modal('hide');
+            $('#updateBrandModal').modal('hide');
         })
     </script>
 
