@@ -40,7 +40,7 @@
                                 <td>
 
                                     <a href="#" wire:click="updatebrands({{$brand->id}})" data-bs-toggle="modal" data-bs-target="#updateBrandModal" class="btn btn-success" style="color: white">Edit</a>
-                                    <a href="#"  class="btn btn-danger" style="color: white" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</a>
+                                    <a href="#" wire:click="deleteBrand({{$brand->id}})" class="btn btn-danger" style="color: white" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</a>
                                 </td>
                             </tr>
                         @endforeach
@@ -61,6 +61,7 @@
         window.addEventListener('close-modal',event=>{
             $('#addBrandModal').modal('hide');
             $('#updateBrandModal').modal('hide');
+            $('#deleteModal').modal('hide');
         })
     </script>
 
